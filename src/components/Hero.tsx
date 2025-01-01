@@ -4,7 +4,7 @@ const Hero = () => {
   return (
     <main className="flex flex-col-reverse md:flex-row items-start md:items-center justify-between gap-10 py-8">
       <div>
-        <h1 className="text-3xl font-bold">
+        <h1 className="text-3xl font-bold flex flex-col md:flex-row md:items-end gap-2">
           Hey, I&apos;m Shashank
           <span className="text-blue-500 text-xl font-light"> /sha.shank/</span>
         </h1>
