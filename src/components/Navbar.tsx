@@ -9,7 +9,7 @@ const Navbar = () => {
           <Blend />
         </span>
       </Link>
-      <div className="flex gap-6">
+      <div className="flex gap-4">
         <Link
           href="/github"
           className="font-medium hover:text-blue-500 focus:outline-none"
