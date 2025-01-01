@@ -22,7 +22,7 @@ const ProjectCard = ({
           alt={title}
           width={1000}
           height={1000}
-          className="object-cover w-full h-40"
+          className="object-cover object-top w-full h-40"
         />
         <div className="p-4 flex flex-col gap-2">
           <h3 className="text-lg font-semibold md:text-xl line-clamp-1">
