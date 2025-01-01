@@ -16,10 +16,10 @@ const Card = ({ data }: CardProps) => {
   return (
     <div className="border border-black rounded-xl shadow-[3px_3px] p-3 flex flex-col md:flex-row justify-between md:items-center">
       <div>
-        <h1 className="text-2xl font-medium capitalize">
+        <h1 className="text-2xl font-semibold capitalize">
           {data.name.split("-").join(" ")}
         </h1>
-        <h4 className="mt-2 italic">{data.topics?.join(", ")}</h4>
+        <p className="mt-2 italic">{data.topics?.join(", ")}</p>
         <div className="flex gap-2 mt-2">
           <Link
             href={data.html_url}
