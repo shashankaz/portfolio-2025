@@ -5,8 +5,10 @@ import Footer from "@/components/Footer";
 export const metadata: Metadata = {
   title: {
     template: "%s | Shashank",
-    default: "Shashank",
+    default: "Shashank - Portfolio",
   },
+  description:
+    "Created by: That person you never thought you'd need… until you did. And now, well, you're welcome.",
 };
 
 export default function RootLayout({
@@ -16,6 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <meta property="og:image" content="/cover.png" />
       <body
         suppressHydrationWarning
         className="antialiased diphylleia max-w-2xl mx-auto px-4"
