@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 
 interface FormData {
@@ -96,6 +97,21 @@ const Contact = () => {
           {isSubmitting ? "Sending..." : "Send"}
         </button>
       </form>
+
+      <div className="flex items-center justify-center gap-2 my-8">
+        <div className="h-[1px] w-full bg-black flex-1"></div>
+        <p>or drop a mail at</p>
+        <div className="h-[1px] w-full bg-black flex-1"></div>
+      </div>
+
+      <div className="text-center">
+        <Link
+          href="mailto:shashankstories@gmail.com"
+          className="hover:text-blue-500"
+        >
+          shashankstories@gmail.com
+        </Link>
+      </div>
     </div>
   );
 };
