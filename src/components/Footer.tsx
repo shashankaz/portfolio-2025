@@ -1,22 +1,36 @@
-import Image from "next/image";
 import Link from "next/link";
+import {
+  FaGithub,
+  FaInstagram,
+  FaLinkedinIn,
+  FaXTwitter,
+} from "react-icons/fa6";
+import { SiCodechef, SiLeetcode } from "react-icons/si";
 
 const items = [
   {
     href: "https://github.com/shashankaz/",
-    icon: "/GithubIcon.svg",
+    icon: <FaGithub />,
   },
   {
     href: "https://twitter.com/shashankaz/",
-    icon: "/TwitterIcon.svg",
+    icon: <FaXTwitter />,
   },
   {
     href: "https://in.linkedin.com/in/shashankaz/",
-    icon: "/LinkedinIcon.svg",
+    icon: <FaLinkedinIn />,
   },
   {
     href: "https://www.instagram.com/shashankaz",
-    icon: "/InstagramIcon.svg",
+    icon: <FaInstagram />,
+  },
+  {
+    href: "https://leetcode.com/",
+    icon: <SiLeetcode />,
+  },
+  {
+    href: "https://www.codechef.com/",
+    icon: <SiCodechef />,
   },
 ];
 
@@ -35,15 +49,9 @@ const Footer = () => {
             key={item.href}
             target="_blank"
             prefetch={false}
-            className="focus:outline-none"
+            className="focus:outline-none text-xl hover:text-blue-500 transition-colors"
           >
-            <Image
-              src={item.icon}
-              alt="logo"
-              height="100"
-              width="100"
-              className="h-6 w-6"
-            />
+            {item.icon}
           </Link>
         ))}
       </div>
