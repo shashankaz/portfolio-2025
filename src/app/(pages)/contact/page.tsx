@@ -19,6 +19,8 @@ const Contact = () => {
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [successMessage, setSuccessMessage] = useState<string | null>(null);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -34,17 +36,37 @@ const Contact = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setError(null);
+    setSuccessMessage(null);
 
     try {
-      console.log("Form submitted:", formData);
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error("Error submitting the form. Please try again.");
+      }
+
+      const data = await response.json();
+
+      setSuccessMessage(data.message);
       setFormData({
         name: "",
         email: "",
         subject: "",
         message: "",
       });
-    } catch (error) {
-      console.error("Error submitting the form:", error);
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        setError(error.message);
+      } else {
+        console.error("Something went wrong");
+      }
     } finally {
       setIsSubmitting(false);
     }
@@ -97,6 +119,11 @@ const Contact = () => {
           {isSubmitting ? "Sending..." : "Send"}
         </button>
       </form>
+
+      {error && <p className="text-red-500 mt-4">{error}</p>}
+      {successMessage && (
+        <p className="text-green-500 mt-4">{successMessage}</p>
+      )}
 
       <div className="flex items-center justify-center gap-2 my-8">
         <div className="h-[1px] w-full bg-black flex-1"></div>
