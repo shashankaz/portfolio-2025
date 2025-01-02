@@ -19,6 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <meta property="og:image" content="/cover.png" />
+      <meta name="twitter:image" content="/cover.png" />
       <body
         suppressHydrationWarning
         className="antialiased diphylleia max-w-2xl mx-auto px-4"
